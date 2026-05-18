@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周文涛 | Wentao Zhou - 在线简历</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #C9A227;
+            --gold-light: #E8D48A;
+            --gold-dark: #8B7020;
+            --black-primary: #1A1A1A;
+            --black-secondary: #2D2D2D;
+            --black-tertiary: #404040;
+            --white-primary: #FFFFFF;
+            --white-secondary: #F8F8F8;
+            --white-tertiary: #E8E8E8;
+            --gray-text: #6B6B6B;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, var(--black-primary) 0%, var(--black-secondary) 50%, var(--black-tertiary) 100%);
+            color: var(--white-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name-en {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .name-cn {
+            font-size: 1.8rem;
+            color: var(--white-primary);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white-tertiary);
+            font-size: 0.95rem;
+        }
+
+        .contact-item .icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--gold-primary);
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 5px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--white-tertiary);
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--gold-primary);
+            color: var(--black-primary);
+            font-weight: 600;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title .icon {
+            width: 32px;
+            height: 32px;
+            fill: var(--gold-primary);
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .summary-card {
+            background: linear-gradient(145deg, var(--black-secondary), var(--black-tertiary));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .summary-card h3 {
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .summary-card p {
+            color: var(--white-tertiary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold-primary), var(--gold-dark));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            padding: 25px 30px;
+            background: linear-gradient(145deg, var(--black-secondary), var(--black-tertiary));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--gold-primary);
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 30px;
+            width: 14px;
+            height: 14px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            border: 3px solid var(--black-primary);
+            box-shadow: 0 0 0 3px var(--gold-light);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--gold-primary);
+            color: var(--black-primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: var(--white-primary);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .timeline-subtitle {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-bullets {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-bullets li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--white-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .timeline-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, var(--black-secondary), var(--black-tertiary));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            border-color: var(--gold-primary);
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--white-tertiary);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skills-category {
+            background: linear-gradient(145deg, var(--black-secondary), var(--black-tertiary));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .skills-category h3 {
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            color: var(--white-primary);
+            font-size: 0.95rem;
+        }
+
+        .skill-level {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--black-primary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary), var(--gold-light));
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+
+        /* Radar Chart */
+        .radar-container {
+            background: linear-gradient(145deg, var(--black-secondary), var(--black-tertiary));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .radar-container h3 {
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .radar-chart {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Skills Tags */
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(201, 162, 39, 0.15);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 20px;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--gold-primary);
+            color: var(--black-primary);
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            color: var(--white-tertiary);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+        }
+
+        /* Research Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .interest-card {
+            background: linear-gradient(145deg, var(--black-secondary), var(--black-tertiary));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .interest-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+        }
+
+        .interest-card h4 {
+            color: var(--gold-primary);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .interest-card p {
+            color: var(--white-tertiary);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        /* Honors */
+        .honors-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .honor-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(145deg, var(--black-secondary), var(--black-tertiary));
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .honor-item:hover {
+            border-color: var(--gold-primary);
+        }
+
+        .honor-badge {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .honor-info h4 {
+            color: var(--white-primary);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .honor-info span {
+            color: var(--gold-light);
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .footer p {
+            color: var(--gray-text);
+            font-size: 0.85rem;
+        }
+
+        /* Hide elements based on language */
+        .cn { display: block; }
+        .en { display: none; }
+
+        body.en-mode .cn { display: none; }
+        body.en-mode .en { display: block; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name-en {
+                font-size: 2.2rem;
+            }
+            .name-cn {
+                font-size: 1.3rem;
+            }
+            .contact-info {
+                gap: 15px;
+            }
+            .header {
+                padding: 40px 20px;
+            }
+            .timeline {
+                padding-left: 30px;
+            }
+            .timeline-item::before {
+                left: -26px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('cn')">中文</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name-en">Wentao Zhou</h1>
+                <h2 class="name-cn">周文涛</h2>
+                <p class="en" style="color: var(--white-tertiary); font-size: 1.1rem; margin-bottom: 15px;">
+                    MSc Candidate in Intelligent Robotics Engineering @ PolyU 2026-2028
+                </p>
+                <p class="cn" style="color: var(--white-tertiary); font-size: 1.1rem; margin-bottom: 15px;">
+                    香港理工大学 智能机器人工程 硕士研究生 2026-2028
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>wentaotodd@163.com</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <section class="stats-grid">
+            <div class="stat-card" onclick="scrollToSection('education')">
+                <div class="stat-value">2</div>
+                <div class="stat-label cn">段教育经历</div>
+                <div class="stat-label en">Education Experiences</div>
+            </div>
+            <div class="stat-card" onclick="scrollToSection('experience')">
+                <div class="stat-value">4</div>
+                <div class="stat-label cn">段实习经历</div>
+                <div class="stat-label en">Internship Experiences</div>
+            </div>
+            <div class="stat-card" onclick="scrollToSection('honors')">
+                <div class="stat-value">3</div>
+                <div class="stat-label cn">项获奖荣誉</div>
+                <div class="stat-label en">Awards & Honors</div>
+            </div>
+            <div class="stat-card" onclick="scrollToSection('interests')">
+                <div class="stat-value">5</div>
+                <div class="stat-label cn">个感兴趣的研究方向</div>
+                <div class="stat-label en">Interested Research Areas</div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                <span class="cn">教育背景</span>
+                <span class="en">Education</span>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">2026.09 - 2028 (Expected)</span>
+                    <h3 class="timeline-title cn">香港理工大学</h3>
+                    <h3 class="timeline-title en">The Hong Kong Polytechnic University (PolyU)</h3>
+                    <p class="timeline-subtitle cn">智能机器人工程 | 硕士研究生</p>
+                    <p class="timeline-subtitle en">MSc in Intelligent Robotics Engineering | Postgraduate</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">2020.09 - 2024.07</span>
+                    <h3 class="timeline-title cn">北京交通大学 × 卧龙岗大学</h3>
+                    <h3 class="timeline-title en">BJTU × University of Wollongong (UOW)</h3>
+                    <p class="timeline-subtitle cn">机械电子工程 | 本科双学位</p>
+                    <p class="timeline-subtitle en">B.Eng. Mechatronics Engineering | Dual Bachelor Degree</p>
+                    <ul class="timeline-bullets cn">
+                        <li>GPA: 2.91/4.0 | 加权平均分: 78.3/100 | 专业排名: 15/61</li>
+                        <li>核心课程: 数字硬件(96/A)、人工智能(87/A-)、机器人学与柔性自动化、固体力学(87/A-)、机械原理(85/A-)</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>GPA: 2.91/4.0 | Weighted Average: 78.3/100 | Rank: 15/61</li>
+                        <li>Key Courses: Digital Hardware (96/A), Artificial Intelligence (87/A-), Robotics & Flexible Automation, Solid Mechanics (87/A-), Mechanical Principles (85/A-)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                <span class="cn">实习经历</span>
+                <span class="en">Internship Experience</span>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">04/2026 - 08/2026</span>
+                    <h3 class="timeline-title cn">博世电动工具（中国）有限公司</h3>
+                    <h3 class="timeline-title en">Robert Bosch Power Tools (China) Co., Ltd.</h3>
+                    <p class="timeline-subtitle cn">工程技术支持实习生</p>
+                    <p class="timeline-subtitle en">Engineering Technical Support Intern</p>
+                    <ul class="timeline-bullets cn">
+                        <li>协助工程师开展日常研发工作，参与产品技术文件的整理与归档</li>
+                        <li>承担简单零部件的 2D/3D 设计工作（AutoCAD / SolidWorks）</li>
+                        <li>对零部件进行系统归类和性能比较，输出对比分析报告</li>
+                        <li>参与测试样品的组装与拆解，掌握标准化测试流程</li>
+                        <li>整理测试数据，独立撰写测试报告</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Assisted engineers with day-to-day R&D tasks and maintained technical documentation</li>
+                        <li>Designed simple mechanical components using AutoCAD and SolidWorks (2D & 3D)</li>
+                        <li>Categorized and compared parts systematically; produced comparative analysis reports</li>
+                        <li>Assembled and disassembled test samples following standardized testing procedures</li>
+                        <li>Consolidated test data and independently authored test reports</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">09/2024 - 12/2024</span>
+                    <h3 class="timeline-title cn">合肥晶威特电子有限责任公司</h3>
+                    <h3 class="timeline-title en">Hefei Jingweite Electronics Co., Ltd.</h3>
+                    <p class="timeline-subtitle cn">设备工程师 | 设备部</p>
+                    <p class="timeline-subtitle en">Equipment Engineer | Equipment Department</p>
+                    <ul class="timeline-bullets cn">
+                        <li>负责电子元器件生产设备的日常巡检与维护，保障产线设备稳定运行</li>
+                        <li>参与设备故障诊断与维修，分析设备异常原因并制定改进方案</li>
+                        <li>协助完成新设备的安装调试与验收工作，编写设备操作规程与维护手册</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Conducted daily inspections and preventive maintenance of electronic component production equipment</li>
+                        <li>Participated in equipment fault diagnosis and repair, analyzing root causes</li>
+                        <li>Assisted with installation, commissioning and acceptance of new equipment</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">05/2023 - 08/2023</span>
+                    <h3 class="timeline-title cn">北京瑞尔天天科技有限公司</h3>
+                    <h3 class="timeline-title en">Beijing RTT Technology Co., Ltd.</h3>
+                    <p class="timeline-subtitle cn">工程实习生 | 工程部</p>
+                    <p class="timeline-subtitle en">Engineering Intern | Department of Engineering</p>
+                    <ul class="timeline-bullets cn">
+                        <li>参与机械零部件的 3D 建模（SolidWorks/Inventor）、装配与设计改进</li>
+                        <li>完成 18 款表具夹具的三维建模与优化学习</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Performed 3D modeling (SolidWorks/Inventor), assembly and design improvement</li>
+                        <li>Completed 3D modeling and optimization study for 18 types of watch-tooling fixtures</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">12/2022 - 06/2023</span>
+                    <h3 class="timeline-title cn">麦默通医疗器械制造（上海）有限公司</h3>
+                    <h3 class="timeline-title en">Mammotome Medical Devices Manufacturing (Shanghai)</h3>
+                    <p class="timeline-subtitle cn">工程实习生 | MMT Product Line</p>
+                    <p class="timeline-subtitle en">Engineering Intern | MMT Product Line</p>
+                    <ul class="timeline-bullets cn">
+                        <li>参与 MMT Elite 产品线组装工艺的审核与校验</li>
+                        <li>验证并改进 MMT 乳腺探针模型，提出零件改进方案</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Participated in review and verification of assembly processes for MMT Elite</li>
+                        <li>Validated and improved the MMT breast probe model</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+                <span class="cn">项目亮点</span>
+                <span class="en">Project Highlights</span>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">09/2023 - 06/2024</span>
+                    <h3 class="timeline-title cn">基于 ToF 传感器的全向轮室内导航机器人</h3>
+                    <h3 class="timeline-title en">Quad Omniwheel Robotic Vehicle with ToF Sensors for Indoor Navigation</h3>
+                    <p class="timeline-subtitle cn">核心成员 | 本科毕业设计</p>
+                    <p class="timeline-subtitle en">Core Member | B.Eng. Thesis</p>
+                    <ul class="timeline-bullets cn">
+                        <li>构建四轮全向底盘硬件系统，实现室内自主路径规划、自动避障与无线遥控功能</li>
+                        <li>融合飞行时间（ToF）传感器与导航算法，实现稳定的自主导航与动态障碍规避</li>
+                        <li>通过 Onenet 平台完成远程无线手控模块开发，实现设备实时监控与操控</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Built a quad-omniwheel robotic hardware platform implementing indoor path planning and obstacle avoidance</li>
+                        <li>Integrated ToF sensors with navigation algorithms for stable autonomous navigation</li>
+                        <li>Developed remote wireless manual control via Onenet IoT platform</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">10/2021 - 04/2022</span>
+                    <h3 class="timeline-title cn">基于肌电与惯导的羽毛球步法分析设备</h3>
+                    <h3 class="timeline-title en">Badminton Footwork Analysis Device Based on EMG and IMU Sensors</h3>
+                    <p class="timeline-subtitle cn">论文作者 | 发表于《价值工程》期刊</p>
+                    <p class="timeline-subtitle en">First Author | Published in Value Engineering Journal</p>
+                    <ul class="timeline-bullets cn">
+                        <li>设计可穿戴步法分析设备，融合 EMG（肌电）与 IMU（惯导）传感数据</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Designed a wearable footwork analysis device fusing EMG and IMU sensor data</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">04/2020 - 07/2022</span>
+                    <h3 class="timeline-title cn">供热巡检自动仪表读取与故障识别系统</h3>
+                    <h3 class="timeline-title en">Automated Gauge Reading & Fault Detection System</h3>
+                    <p class="timeline-subtitle cn">竞赛组员 | 获竞赛二等奖</p>
+                    <p class="timeline-subtitle en">Competition Member | 2nd Prize</p>
+                    <ul class="timeline-bullets cn">
+                        <li>参与北京交通大学工程实践与创新能力大赛及国家级大学生创新创业训练计划</li>
+                        <li>负责表盘识别与读取算法的设计与调试</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Participated in BJTU Engineering Practice & Innovation Competition</li>
+                        <li>Designed and debugged the gauge-recognition and reading algorithm</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">03/2022 - 07/2022</span>
+                    <h3 class="timeline-title cn">BJTU 机电杯智能小车挑战赛</h3>
+                    <h3 class="timeline-title en">BJTU Mechatronics Cup – Smart Car Challenge</h3>
+                    <p class="timeline-subtitle cn">竞赛组员 | 获挑战赛特等奖</p>
+                    <p class="timeline-subtitle en">Competition Member | Grand Prize</p>
+                    <ul class="timeline-bullets cn">
+                        <li>参与智能小车研发，负责部分功能模块开发与调试</li>
+                    </ul>
+                    <ul class="timeline-bullets en">
+                        <li>Developed and debugged functional modules for an autonomous smart car</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+                <span class="cn">专业技能</span>
+                <span class="en">Skills</span>
+            </h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3 class="cn">语言能力 Language</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">IELTS 7.0 (L7.5/R7.5/S6.5/W6.0)</span>
+                        <span class="skill-tag">CET-4: 545</span>
+                        <span class="skill-tag">CET-6: 483</span>
+                        <span class="skill-tag cn">全英文教学背景</span>
+                        <span class="skill-tag en">Full English-Medium Education</span>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3 class="cn">技术技能 Technical</h3>
+                    <ul class="skill-list cn">
+                        <li>机械设计：AutoCAD、SolidWorks、Inventor（2D/3D 绘图与建模）</li>
+                        <li>编程与AI：C/C++、Python（机器学习基础）</li>
+                        <li>嵌入式系统：MCU开发、PSCAD、Power World</li>
+                        <li>机器人：ROS基本概念、机器人学与自动化课程背景</li>
+                        <li>其他：MS Office、Adobe Photoshop、Premiere Pro/剪映</li>
+                    </ul>
+                    <ul class="skill-list en">
+                        <li>Mechanical Design: AutoCAD, SolidWorks, Inventor (2D/3D drafting & modeling)</li>
+                        <li>Programming & AI: C/C++, Python (ML fundamentals)</li>
+                        <li>Embedded Systems: MCU development, PSCAD, Power World</li>
+                        <li>Robotics: ROS basics, robotics & automation coursework</li>
+                        <li>Other: MS Office, Adobe Photoshop, Premiere Pro</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Interests Section -->
+        <section class="section" id="interests">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                <span class="cn">研究方向</span>
+                <span class="en">Research Interests</span>
+            </h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <h4>🤖 <span class="cn">具身智能</span><span class="en">Embodied AI</span></h4>
+                    <p class="cn">探索机器人感知-决策-行动的闭环机制，研究大语言模型/视觉语言模型在机器人任务规划与执行中的应用</p>
+                    <p class="en">Investigating the perception-decision-action loop in robotic systems; integrating LLMs and VLMs for robot task planning</p>
+                </div>
+                <div class="interest-card">
+                    <h4>✋ <span class="cn">机器人操控与灵巧手</span><span class="en">Robot Manipulation</span></h4>
+                    <p class="cn">研究机械手的精细操控策略，涵盖接触力控制、抓取规划及多模态感知融合</p>
+                    <p class="en">Fine manipulation strategies including contact-force control, grasp planning and multi-modal sensory fusion</p>
+                </div>
+                <div class="interest-card">
+                    <h4>🛤️ <span class="cn">运动规划与路径优化</span><span class="en">Motion Planning</span></h4>
+                    <p class="cn">基于实时传感器数据的运动规划算法，包括全向底盘导航与冗余度机械臂轨迹优化</p>
+                    <p class="en">Real-time motion planning algorithms for omnidirectional mobile bases and redundant robotic arms</p>
+                </div>
+                <div class="interest-card">
+                    <h4>🤝 <span class="cn">人机交互与协作机器人</span><span class="en">Human-Robot Interaction</span></h4>
+                    <p class="cn">研究人机协同作业下的安全控制策略与自适应行为学习</p>
+                    <p class="en">Safety-aware control strategies and adaptive behavior learning for human-robot collaboration</p>
+                </div>
+                <div class="interest-card">
+                    <h4>🧠 <span class="cn">机器学习在机器人控制中的应用</span><span class="en">ML for Robot Control</span></h4>
+                    <p class="cn">强化学习、模仿学习驱动的机器人策略学习与自适应控制</p>
+                    <p class="en">Reinforcement learning and imitation learning for robot policy learning and adaptive control</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors Section -->
+        <section class="section" id="honors">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="cn">荣誉奖项</span>
+                <span class="en">Honors & Awards</span>
+            </h2>
+            <div class="honors-list">
+                <div class="honor-item">
+                    <div class="honor-badge">🏆</div>
+                    <div class="honor-info">
+                        <h4 class="cn">机电杯智能小车挑战赛 特等奖</h4>
+                        <h4 class="en">Grand Prize - BJTU Mechatronics Cup</h4>
+                        <span>2022</span>
+                    </div>
+                </div>
+                <div class="honor-item">
+                    <div class="honor-badge">🥈</div>
+                    <div class="honor-info">
+                        <h4 class="cn">工程实践与创新能力大赛 二等奖</h4>
+                        <h4 class="en">2nd Prize - BJTU Engineering Innovation Competition</h4>
+                        <span>2021</span>
+                    </div>
+                </div>
+                <div class="honor-item">
+                    <div class="honor-badge">🎖️</div>
+                    <div class="honor-info">
+                        <h4 class="cn">一等体育活动优秀奖学金</h4>
+                        <h4 class="en">First-Class Sports Activity Excellence Scholarship</h4>
+                        <span>2020-2021</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Self Evaluation -->
+        <section class="section">
+            <h2 class="section-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <span class="cn">自我评价</span>
+                <span class="en">Self Evaluation</span>
+            </h2>
+            <div class="summary-card">
+                <p class="cn" style="font-size: 1.05rem; line-height: 2;">
+                    本科阶段系统学习机械与电子工程领域的核心知识，具备扎实的机械设计、电路分析与嵌入式控制基础，研究与竞赛经历覆盖智能感知、运动控制与机器人系统等方向。在实习期间培养了工程实践能力，能够将学术知识转化为实际产品开发与测试工作。具备良好的英语学术读写与沟通能力（雅思 7.0），本科及研究生阶段均接受全英文教学。性格主动、学习能力强，善于团队协作与跨学科沟通，期待在香港理工大学的研究环境中进一步深耕智能机器人工程领域，推动具身智能方向的前沿探索。
+                </p>
+                <p class="en" style="font-size: 1.05rem; line-height: 2;">
+                    My undergraduate studies provided a solid foundation spanning mechanical design, circuit analysis, embedded control and artificial intelligence, reinforced by research projects and engineering competitions in intelligent sensing, motion control and robotic systems. My internship experiences have cultivated practical engineering skills and the ability to translate academic knowledge into real-world product development. I possess strong English academic reading, writing and communication skills (IELTS 7.0), with full English-medium education at both undergraduate and postgraduate levels. I am proactive, a fast learner, and effective at cross-disciplinary teamwork. I look forward to deepening my expertise in intelligent robotics engineering at PolyU and contributing to frontier research in embodied intelligence.
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="cn">© 2026 周文涛</p>
+            <p class="en">© 2026 Wentao Zhou</p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Language toggle function
+        function setLang(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (lang === 'en') {
+                body.classList.add('en-mode');
+                buttons[1].classList.add('active');
+            } else {
+                body.classList.remove('en-mode');
+                buttons[0].classList.add('active');
+            }
+
+            // Save preference
+            localStorage.setItem('resume-lang', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('resume-lang');
+            if (savedLang) {
+                setLang(savedLang);
+            }
+        });
+
+        // Animate skill bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skill-fill');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.style.width;
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.skills-category').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
