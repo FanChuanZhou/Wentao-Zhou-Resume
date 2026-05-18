@@ -4,7 +4,7 @@
 
 这是周文涛的个人在线简历页面。
 
-访问地址: **https://[你的GitHub用户名].github.io/Wentao-Zhou-Resume/**
+访问地址: **https://FanChuanZhou.github.io/Wentao-Zhou-Resume/**
 
 ## 个人主页 | Personal Website
 
